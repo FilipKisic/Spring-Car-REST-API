@@ -4,4 +4,4 @@ import lombok.Builder;
 
 
 @Builder
-public record CarDTO(String brand, String model, String color, Integer powerInHp){}
+public record CarDTO(Long id, String brand, String model, String color, Integer powerInHp){}

@@ -9,6 +9,7 @@ public class CarMapper {
 
     public CarDTO toDto(final Car car) {
         return CarDTO.builder()
+                .id(car.getId())
                 .brand(car.getBrand())
                 .model(car.getModel())
                 .color(car.getColor())
@@ -18,6 +19,7 @@ public class CarMapper {
 
     public Car toEntity(final CarDTO carDTO) {
         return Car.builder()
+                .id(carDTO.id())
                 .brand(carDTO.brand())
                 .model(carDTO.model())
                 .color(carDTO.color())

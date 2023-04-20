@@ -1,6 +1,5 @@
 package hr.algebra.springproject.bootstrap;
 
-import hr.algebra.springproject.entity.Car;
 import hr.algebra.springproject.model.CarDTO;
 import hr.algebra.springproject.service.CarSerivce;
 import lombok.AllArgsConstructor;

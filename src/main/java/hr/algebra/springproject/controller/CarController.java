@@ -3,6 +3,7 @@ package hr.algebra.springproject.controller;
 import hr.algebra.springproject.model.CarDTO;
 import hr.algebra.springproject.service.CarSerivce;
 import lombok.AllArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,19 +15,17 @@ public class CarController {
     private final CarSerivce carSerivce;
 
     @GetMapping("/all")
-    public List<CarDTO> getAllCars() {
-        return carSerivce.findAll();
+    public ResponseEntity<List<CarDTO>> getAllCars() {
+        return ResponseEntity.ok(carSerivce.findAll());
     }
 
     @GetMapping("/{id}")
-    public CarDTO getById(@PathVariable final String id) {
-        //TODO: validate String id
-        return carSerivce.findById(1L).orElseThrow(); //TODO: Throw exception if optional is not good
+    public ResponseEntity<CarDTO> getById(@PathVariable final Long id) {
+        return carSerivce.findById(id).map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PostMapping()
     public void createCar(@RequestBody final CarDTO newCar) {
-        //TODO: Throw error if it already exists
         carSerivce.save(newCar);
     }
 
@@ -36,9 +35,8 @@ public class CarController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteCarById(@PathVariable final String id) {
-        //TODO: validate String id
-        carSerivce.deleteById(1L);
+    public void deleteCarById(@PathVariable final Long id) {
+        carSerivce.deleteById(id);
     }
 
     @DeleteMapping()
