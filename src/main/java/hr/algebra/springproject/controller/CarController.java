@@ -19,27 +19,27 @@ public class CarController {
         return ResponseEntity.ok(carSerivce.findAll());
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/car/{id}")
     public ResponseEntity<CarDTO> getById(@PathVariable final Long id) {
         return carSerivce.findById(id).map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @PostMapping()
+    @PostMapping("/new")
     public void createCar(@RequestBody final CarDTO newCar) {
         carSerivce.save(newCar);
     }
 
-    @PutMapping()
+    @PutMapping("/update")
     public void updateCar(@RequestBody final CarDTO updatedCar) {
         carSerivce.save(updatedCar);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public void deleteCarById(@PathVariable final Long id) {
         carSerivce.deleteById(id);
     }
 
-    @DeleteMapping()
+    @DeleteMapping("/delete")
     public void deleteCar(@RequestBody final CarDTO carToDelete) {
         carSerivce.delete(carToDelete);
     }
