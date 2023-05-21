@@ -12,7 +12,9 @@ import java.util.List;
 @AllArgsConstructor
 @RequestMapping("cars")
 public class CarController {
+
     private final CarSerivce carSerivce;
+
 
     @GetMapping("/all")
     public ResponseEntity<List<CarDTO>> getAllCars() {
