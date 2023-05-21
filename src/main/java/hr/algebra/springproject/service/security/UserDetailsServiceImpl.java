@@ -1,5 +1,6 @@
-package hr.algebra.springproject.security;
+package hr.algebra.springproject.service.security;
 
+import hr.algebra.springproject.security.UserDetailsImpl;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

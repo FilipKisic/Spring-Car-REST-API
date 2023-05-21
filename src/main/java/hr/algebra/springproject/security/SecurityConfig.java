@@ -1,5 +1,6 @@
 package hr.algebra.springproject.security;
 
+import hr.algebra.springproject.service.security.UserDetailsServiceImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -33,7 +34,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http.csrf().disable()
                 .authorizeHttpRequests()
-                .requestMatchers("/auth/login").permitAll()
+                .requestMatchers("/auth/login", "/auth/refreshToken").permitAll()
                 .and()
                 .authorizeHttpRequests()
                 .requestMatchers("/cars/**").authenticated()

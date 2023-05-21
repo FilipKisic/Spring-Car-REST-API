@@ -1,6 +1,7 @@
 package hr.algebra.springproject.security;
 
-import hr.algebra.springproject.service.JwtGeneratorService;
+import hr.algebra.springproject.service.security.JwtGeneratorService;
+import hr.algebra.springproject.service.security.UserDetailsServiceImpl;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

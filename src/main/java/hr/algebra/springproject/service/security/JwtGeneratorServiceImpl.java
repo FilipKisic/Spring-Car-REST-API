@@ -1,4 +1,4 @@
-package hr.algebra.springproject.service;
+package hr.algebra.springproject.service.security;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -59,7 +59,7 @@ public class JwtGeneratorServiceImpl implements JwtGeneratorService {
                 .setClaims(claims)
                 .setSubject(username)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 30))
+                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 15 * 1)) //15 seconds
                 .signWith(getSignKey(), SignatureAlgorithm.HS256)
                 .compact();
     }

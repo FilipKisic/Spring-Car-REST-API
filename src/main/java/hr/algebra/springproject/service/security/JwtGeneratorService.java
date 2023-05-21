@@ -1,4 +1,4 @@
-package hr.algebra.springproject.service;
+package hr.algebra.springproject.service.security;
 
 import org.springframework.security.core.userdetails.UserDetails;
 
