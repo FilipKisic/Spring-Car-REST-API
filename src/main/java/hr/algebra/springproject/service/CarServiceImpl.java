@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -25,7 +24,7 @@ public class CarServiceImpl implements CarSerivce {
     @Override
     public List<CarDTO> findAll() {
         final List<Car> cars = carRepository.findAll();
-        return cars.stream().map(carMapper::toDto).collect(Collectors.toList());
+        return cars.stream().map(carMapper::toDto).toList();
     }
 
     @Override

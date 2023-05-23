@@ -2,19 +2,26 @@ package hr.algebra.springproject.bootstrap;
 
 import hr.algebra.springproject.model.CarDTO;
 import hr.algebra.springproject.service.CarSerivce;
-import lombok.AllArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 @Component
-@AllArgsConstructor
 public class DataLoader implements CommandLineRunner {
 
     private final CarSerivce carSerivce;
+    private final Logger logger;
+
+    public DataLoader(CarSerivce carSerivce) {
+        this.carSerivce = carSerivce;
+        this.logger = Logger.getLogger(DataLoader.class.getName());
+    }
 
     @Override
     public void run(String... args) {
-        System.out.println("Cars about to load...");
+        logger.log(Level.CONFIG, "Cars about to load...");
 
         final CarDTO mercedes = CarDTO.builder().brand("Mercedes-Benz").model("C63 AMG").color("Red").powerInHp(462).build();
         final CarDTO bmw = CarDTO.builder().brand("BMW").model("420d Gran Coupe").color("Grey").powerInHp(190).build();
@@ -32,6 +39,6 @@ public class DataLoader implements CommandLineRunner {
         carSerivce.save(audi);
         carSerivce.save(lexus);
 
-        System.out.println("All cars successfully loaded!");
+        logger.log(Level.FINE, "All cars successfully loaded!");
     }
 }

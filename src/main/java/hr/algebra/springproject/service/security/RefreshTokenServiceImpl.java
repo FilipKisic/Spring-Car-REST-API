@@ -1,6 +1,7 @@
 package hr.algebra.springproject.service.security;
 
 import hr.algebra.springproject.entity.RefreshToken;
+import hr.algebra.springproject.error.TokenExpirationException;
 import hr.algebra.springproject.repository.RefreshTokenRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -34,7 +35,7 @@ public class RefreshTokenServiceImpl implements RefreshTokenService {
     public RefreshToken verifyExpiration(final RefreshToken token) {
         if (token.getExpiryDate().isBefore(Instant.now())) {
             refreshTokenRepository.delete(token);
-            throw new RuntimeException(token.getToken() + " refresh token has expired.");
+            throw new TokenExpirationException(token.getToken() + " refresh token has expired.");
         }
         return token;
     }
