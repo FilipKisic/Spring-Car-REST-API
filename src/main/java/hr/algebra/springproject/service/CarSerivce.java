@@ -12,4 +12,6 @@ public interface CarSerivce {
     void update(CarDTO updatedCar);
     void delete(CarDTO carToDelete);
     void deleteById(Long id);
+    void serializeAllCars();
+    void deserializeAllCars();
 }

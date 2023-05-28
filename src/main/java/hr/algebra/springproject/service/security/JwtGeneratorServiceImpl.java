@@ -59,7 +59,7 @@ public class JwtGeneratorServiceImpl implements JwtGeneratorService {
                 .setClaims(claims)
                 .setSubject(username)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 15 * 1)) //15 seconds
+                .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 5)) //5 minutes
                 .signWith(getSignKey(), SignatureAlgorithm.HS256)
                 .compact();
     }

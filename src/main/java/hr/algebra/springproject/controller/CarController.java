@@ -45,4 +45,14 @@ public class CarController {
     public void deleteCar(@RequestBody final CarDTO carToDelete) {
         carSerivce.delete(carToDelete);
     }
+
+    @GetMapping("/serialize")
+    public void serializeAllCars() {
+        carSerivce.serializeAllCars();
+    }
+
+    @GetMapping("/deserialize")
+    public void deserializeAllCars() {
+        carSerivce.deserializeAllCars();
+    }
 }
