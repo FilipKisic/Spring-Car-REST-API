@@ -1,0 +1,10 @@
+Mule ESB
+    - Java 11 required
+ActiveMQ
+    - Java 11 required
+    - download zip: http://activemq.apache.org/components/classic/download/
+    - Run activemq.bat file from bin/win64 folder.
+    - Open the URL with the list of queues: http://localhost:8161/admin/queues.jsp. Credentials are admin/admin.
+jBPM
+    - Java 8 required
+    - set Spring port to be 8088 in application.properties file
